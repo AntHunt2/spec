@@ -1,0 +1,11 @@
+{
+    "name": "itheima-tools",
+    "version": "1.0.0",
+    "main": "index.js",
+    "description": "时间、HTML转换",
+    "keywords": [
+        "HTML",
+        "xxx"
+    ],
+    "license": "ISC"
+}

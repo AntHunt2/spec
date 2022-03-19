@@ -1,0 +1,145 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:REDEME</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h3 id="-">学习目标</h3>
+<h3 id="1-">1、模块化的好处</h3>
+<pre><code>1.1 模块化的基本概念
+    模块化是指结果一个复杂问题时，自顶向下逐层把系统划分成若干模块的过程，对于整个系统来说，模块可是组合、分解和更换的单元。
+    编程领域中的模块化，就是遵守固定的规则，把一个大文件拆成独立并相互依赖的多个小模块
+    优点：
+        提高了代码的可复用性
+        提高了代码的可维护性
+        可以实现按需加载
+        降低了沟通成本，极大的方便了各个模块之间的相互调用
+    模块化规范：
+        模块化规范就是对代码进行模块化的拆分与组合时需要遵守的规则，例如用什么样的语法格式来引用模块，在模块中使用什么样的语法格式向外暴露成员方法、变量、函数等等
+1.2 NodeJs中模块的分类
+    内置模块(由nodejs官方提供的，例如fs、path、http等)
+    自定义模块(用户自己创建的js)
+    第三方模块(第三方开发出来的模块，使用时需要提前下载的)
+    1.2.1 引入模块的三种方式
+        a: const parme = require(&#39;fs&#39;) //引入node内置模块
+        b: const url = require(&#39;./xxx.js&#39;) // 引入自定义模块
+        c: const other = require(&#39;xx&#39;) // 引入其他模块
+1.3 模块作用域
+    和函数作用域类似，在自定义模块中的变量、方法等成员，只能在当前模块内访问，这种模块级别的访问限制，叫做模块作用域。
+    模块作用域的好处：防止全局变量污染
+1.4 如何向外暴露模块作用域中的成员变量、方法等
+    1.4.1 module对象
+        每个js自定义模块中都有一个module对象，它里面存储了当前模块的有关信息。如：id、path、exports、parent、filename、loaded、childen、paths。
+        再也定义模块中，module.exports将模块内的成员共享出去，供外界使用
+    1.4.3 exports对象
+        由于modules.exports写起来复杂，为了简化共享成员，Node提供了exports对象，默认情况下，exports和modules.exports指向同一个对象，最终共享结果还是以modules.exports指向的对象为准。
+
+1.3 npm与包
+    nodeJs中的第三方模块又叫做包。
+
+1.4 模块的加载机制
+</code></pre><h3 id="2-commonjs-">2、CommonJs规定了哪些内容</h3>
+<pre><code>2.1、每个模块内部，module变量代表了当前模块
+2.2、module是一个对象，它的export属性是对外的接口
+2.3、加载某个模块时，其实加载的是module.export属性，require()方法用于加载模块
+</code></pre><h3 id="3-nodejs-">3、NodeJs中模块化的三大分类是什么</h3>
+<h3 id="4-npm-">4、熟练使用npm包管理</h3>
+<pre><code>如何查看是否全局安装？
+    查看官网推荐
+
+-g 全局安装
+-D 开发环境使用
+-o 转换完成以后自动打开
+
+4.1、nrm 切换下载包的服务器
+    sudo cnpm install nrm -g
+    nrm ls // 查看有哪些下载地址
+    nrm user cnpm // 切换下载地址为cnpm 淘宝镜像
+
+4.2、i5ting_toc  把md文档转换为html页面的小工具
+    cnpm install -g i5ting_toc // 安装i5ting_toc
+</code></pre><h3 id="5-">5、了解什么是规范的包结构</h3>
+<h3 id="6-">6、了解模块的加载机制</h3>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
